@@ -22,7 +22,7 @@ class Gbinside_Lazyload_Block_Script extends Mage_Core_Block_Abstract
 //<![CDATA[
 
 function gblazyload() {
-    var secureHeight = {$secureHeight}
+    var secureHeight = {$secureHeight};
     $$('img[src$="gblazyload/ajax-loader.gif"]').each( function(x) {
         var scrollTop = document.viewport.getScrollOffsets()['top'];
         var height = document.viewport.getHeight();

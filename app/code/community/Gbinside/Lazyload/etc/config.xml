@@ -67,4 +67,12 @@
             </resources>
         </acl>
     </adminhtml>
+    <default>
+        <gblazyload>
+            <settings>
+                <active>1</active>
+                <handles><![CDATA[a:2:{s:18:"_1417190865522_522";a:1:{s:6:"handle";s:21:"catalog_category_view";}s:18:"_1417191124909_909";a:1:{s:6:"handle";s:15:"cms_index_index";}}]]></handles>
+            </settings>
+        </gblazyload>
+    </default>
 </config>
