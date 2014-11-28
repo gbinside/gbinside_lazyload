@@ -7,4 +7,12 @@
  */ 
 class Gbinside_Lazyload_Helper_Data extends Mage_Core_Helper_Abstract {
 
+    public function getSecureHeight()
+    {
+        return 0;
+    }
+
+    public function isEnabled() {
+        return true;
+    }
 }

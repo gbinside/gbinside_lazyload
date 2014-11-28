@@ -26,4 +26,45 @@
             </gblazyload>
         </helpers>
     </global>
+    <frontend>
+        <events>
+            <http_response_send_before>
+                <observers>
+                    <gbinside_lazyload>
+                        <type>singleton</type>
+                        <class>gblazyload/observer</class>
+                        <method>httpResponseSendBefore</method>
+                    </gbinside_lazyload>
+                </observers>
+            </http_response_send_before>
+        </events>
+        <layout>
+            <updates>
+                <gbinside_lazyload>
+                    <file>../../../../../code/community/Gbinside/Lazyload/layout/gblazyload.xml</file>
+                </gbinside_lazyload>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <gblazyload translate="title" module="gblazyload">
+                                            <label>Gbinside Lazyload</label>
+                                        </gblazyload>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
 </config>

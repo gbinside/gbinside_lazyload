@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    <default>
+        <reference name="before_body_end">
+            <block type="gblazyload/script" />
+        </reference>
+    </default>
+
+</layout>
+
+        <!-- Put this function in your block
+
+            protected function _getAllowSymlinks() # fix per la 1.6.0.0
+            {
+                return TRUE;
+            }
+
+            public function fetchView($fileName) {
+                $this->setScriptPath(
+                    Mage::getModuleDir('','Webgriffe_Banner'). DS . 'templates'
+                );
+
+                return parent::fetchView($this->getTemplate());
+            }
+
+          -->
