@@ -1,4 +1,7 @@
+Gbinside Lazyload
+=================
 
+Magento lazyload images on product gallery
 
 * agganciare certi handle, tipo la galleria dei prodotti (config)
 * sostitutire nell'html gli src con dei data-src
