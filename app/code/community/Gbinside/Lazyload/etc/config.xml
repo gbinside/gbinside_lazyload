@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Gbinside_Lazyload>
+            <version>0.1.0</version>
+        </Gbinside_Lazyload>
+    </modules>
+    <global>
+        <models>
+            <gblazyload>
+                <class>Gbinside_Lazyload_Model</class>
+                <resourceModel>gblazyload_resource</resourceModel>
+            </gblazyload>
+            <gblazyload_resource>
+                <class>Gbinside_Lazyload_Model_Resource</class>
+            </gblazyload_resource>
+        </models>
+        <blocks>
+            <gblazyload>
+                <class>Gbinside_Lazyload_Block</class>
+            </gblazyload>
+        </blocks>
+        <helpers>
+            <gblazyload>
+                <class>Gbinside_Lazyload_Helper</class>
+            </gblazyload>
+        </helpers>
+    </global>
+</config>

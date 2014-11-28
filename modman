@@ -1,0 +1,3 @@
+app/code/community/Gbinside/Lazyload                            app/code/community/Gbinside/Lazyload/
+app/etc/modules/Gbinside_Lazyload.xml                           app/etc/modules/Gbinside_Lazyload.xml
+skin/frontend/base/default/images/gblazyload/ajax-loader.gif    skin/frontend/base/default/images/gblazyload/ajax-loader.gif
