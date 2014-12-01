@@ -33,25 +33,51 @@ class Gbinside_Lazyload_Block_Adminhtml_Rotator extends Mage_Adminhtml_Block_Sys
      */
     public function _toHtml()
     {
-        $button = $this->getLayout()->createBlock('adminhtml/widget_button')
+        #http://spiffygif.com/gif?rotate=29&color=000000&corners=0.7&lines=9&trail=52&length=9&radius=11&shadow=true&width=5&halo=true&bgColor=992599
+        $params = array();
+        foreach (array('rotate','lines','length','width','radius','corners','trail','rotate','bgColor','color','shadow','halo') as $p) {
+            $params[] = $p . "='+\$F('gblazyload_" . $p . "')+'";
+        }
+        $gifurl = 'http:\\/\\/spiffygif.com\\/gif?' . implode('&', $params);
+
+        $preview = $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData(array(
-                'id' => 'gblazyload_button',
-                'label' => $this->helper('adminhtml')->__('Generate'),
-                'onclick' => 'javascript:new Ajax.Request(\'http://www.ajaxload.info/cache/FF/FF/FF/00/00/00/1-0.gif\', { onSuccess: function(response) { alert(response.statusText); } } ); return false;'
+                'id' => 'gblazyload_button_preview',
+                'label' => $this->helper('gblazyload')->__('Preview'),
+                //'onclick' => 'javascript:new Ajax.Request(\'http://spiffygif.com/gif\', { onSuccess: function(response) { alert(response.statusText); } } ); return false;'
+                'onclick' => "javascript:
+                new Ajax.Request('" . $gifurl . "', { onSuccess: function(response) { } } );
+                $('gblazyload_system_config_image').setAttribute('src', '" . $gifurl . "') ;
+                return false;"
+//                'onclick' => "javascript: alert( '" . $gifurl . "') ; return false;"
             ));
 
         return
-            '<img src="' . Mage::getDesign()->getSkinUrl('images/gblazyload/ajax-loader.gif', array('_area'=>'frontend')) . '" />' .
+            '<img id="gblazyload_system_config_image" src="' . Mage::getDesign()->getSkinUrl('images/gblazyload/ajax-loader.gif', array('_area'=>'frontend')) . '" />' .
             '<br />'.
-            'Type (1-39): <input name="type" value="1" class="gblazyload_rotator"/>'.
+            'length (0-45): <input id="gblazyload_length" name="gblazyload_length" value="0" class="gblazyload_rotator"/>'.
             '<br />'.
-            'Background color: <input name="color1" value="FFFFFF" class="gblazyload_rotator"/>'.
+            'width (1-15): <input id="gblazyload_width" name="gblazyload_width" value="1" class="gblazyload_rotator"/>'.
             '<br />'.
-            'Foreground color: <input name="color2" value="000000" class="gblazyload_rotator"/>'.
+            'radius (0-27): <input id="gblazyload_radius" name="gblazyload_radius" value="8" class="gblazyload_rotator"/>'.
+            '<br />'.
+            'Lines (1-16): <input id="gblazyload_lines" name="gblazyload_lines" value="1" class="gblazyload_rotator"/>'.
+            '<br />'.
+            'Corners (0.0-1.0): <input id="gblazyload_corners" name="gblazyload_corners" value="0.0" class="gblazyload_rotator"/>'.
+            '<br />'.
+            'Trail (10-100): <input id="gblazyload_trail" name="gblazyload_trail" value="10" class="gblazyload_rotator"/>'.
+            '<br />'.
+            'Rotate (0-90): <input id="gblazyload_rotate" name="gblazyload_rotate" value="0" class="gblazyload_rotator"/>'.
+            '<br />'.
+            'Background color: <input id="gblazyload_bgColor" name="gblazyload_bgColor" value="FFFFFF" class="gblazyload_rotator"/>'.
+            '<br />'.
+            'Foreground color: <input id="gblazyload_color" name="gblazyload_color" value="000000" class="gblazyload_rotator"/>'.
             '<br />'.
             //print_r($this->_element->debug(), true) .
-            'Transparent background: <input type="checkbox" value="1" name="trans" class="gblazyload_rotator"/>'.
+            'Shadow: <input type="checkbox" value="1" id="gblazyload_shadow" name="gblazyload_shadow" class="gblazyload_rotator"/>'.
             '<br />'.
-            $button->toHtml();
+            'Halo: <input type="checkbox" value="1" id="gblazyload_halo" name="gblazyload_halo" class="gblazyload_rotator"/>'.
+            '<br />'.
+            $preview->toHtml();
     }
 } 
