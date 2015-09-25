@@ -35,6 +35,7 @@ function gblazyload() {
 document.observe("dom:loaded", gblazyload);
 Event.observe(window, 'scroll', gblazyload);
 Event.observe(window, 'resize', gblazyload);
+setTimeout(gblazyload,100);
 
 //]]>
 </script>
